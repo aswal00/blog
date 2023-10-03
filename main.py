@@ -12,6 +12,7 @@ from flask_gravatar import Gravatar
 import os
 
 
+# Create flask app
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("APP_SECRET_KEY")
 ckeditor = CKEditor(app)
@@ -42,7 +43,6 @@ def load_user(user_id):
 
 
 # CONFIGURE TABLES
-
 
 class BlogPost(db.Model):
     __tablename__ = "blog_posts"
@@ -244,4 +244,4 @@ def delete_post(post_id):
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=False)
